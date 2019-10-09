@@ -12,7 +12,7 @@ export default {
     version: '1.0',
     icp: '',
     copy: '',
-    pageTitle: '-CARC管理台',
+    pageTitle: 'CARC管理台',
     appName: '',
     baseURL,
     webURL,

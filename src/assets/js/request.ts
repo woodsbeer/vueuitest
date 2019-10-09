@@ -16,13 +16,14 @@ axios.defaults.baseURL = baseURL;
 axios.interceptors.request.use(
     config => {
         // console.log(config.data instanceof FormData,'config.data instanceof FormData');
-        config.data = !!config.data ? config.data instanceof FormData ? config.data : JSON.parse(JSON.stringify(config.data)) : undefined;
+        config.data = config.data ? config.data instanceof FormData ? config.data : JSON.parse(JSON.stringify(config.data)) : undefined;
         config.headers['Token'] = auth.get().token;
         config.headers['Cache-Control'] = 'no-cache';
         //config.headers['appid'] = 'insiap';
         return config
     },
     error => {
+        // @ts-ignore
         iView.Message.error('网络异常');
         return Promise.reject(error);
     });
@@ -32,21 +33,23 @@ axios.interceptors.response.use(
         if (response.status === 200) {
             return response.data;
         }
+        // @ts-ignore
         iView.Message.error(response.statusText);
         return Promise.reject(response);
     },
     error => {
+        // @ts-ignore
         iView.Message.error('服务器异常');
         return Promise.reject(error);
     });
 
-const Main = (option) => {
+const Main = (option:any) => {
     return axios.get('/app/systemTime/get')
         .then((signTimestamp) => {
             return axios(deepAssign(
                 {
                     headers: {
-                        'CARC-Authorization': getSign(!!signTimestamp.data ? signTimestamp.data.dateTime : null)
+                        'CARC-Authorization': getSign(signTimestamp.data ? signTimestamp.data.dateTime : null)
                     }
                 },
                 option

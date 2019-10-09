@@ -10,7 +10,7 @@ export default {
             [TOKEN]: store.get(TOKEN)
         }
     },
-    login ({manager, token}) {
+    login ({manager, token}:any) {
         store.set(MANAGER, manager);
         store.set(TOKEN, token)
     },

@@ -4,7 +4,7 @@
 import md5 from 'md5';
 import config from '../../config';
 
-export const getSign = (signTimestamp = new Date().getTime()) => {
+export const getSign = (signTimestamp:number = new Date().getTime()) => {
     let {deviceId, signVersion, originKey} = config.signConfig,
         requestKey = md5(deviceId + originKey).toString(),
         sign = md5(deviceId + signTimestamp + requestKey).toString(),
@@ -12,7 +12,7 @@ export const getSign = (signTimestamp = new Date().getTime()) => {
     return JSON.stringify(auth);
 };
 
-export const title = (title = '盈识平台') => {
+export const title = (title = 'c-arc平台') => {
     window.document.title = title;
 };
 
@@ -42,28 +42,16 @@ export const getMonthAgo = () => {
     return date
 };
 export const getNowFormatDate=()=> {
-    let date = new Date();
-    let seperator1 = "-";
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    let currentdate = year + seperator1 + month + seperator1 + strDate;
-    return currentdate;
-}
+ return    new Date().format('yyyy-MM-dd')
 
+}
 /**
  * 展业云专用
  * @param file
  * @param fileName
  * @returns {FormData}
  */
-export const getFormData = (file, fileName) => {
+export const getFormData = (file:any, fileName:string|Blob) => {
     let formData = new FormData();
     formData.append('file', file, file.name);
     !!fileName && formData.append('fileName', fileName);

@@ -33,10 +33,19 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import {ComponentOptions} from "vue";
+import {getNowFormatDate} from "@/assets/js/util";
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+
+  constructor() {
+    super();
+    // eslint-disable-next-line no-console
+    console.log(new Date().format("yyyy-MM-dd"))
+    console.log(getNowFormatDate());
+  }
 }
 </script>
 

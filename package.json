@@ -21,6 +21,9 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/deep-assign": "^0.1.1",
+    "@types/md5": "^2.1.33",
+    "@types/store": "^2.0.2",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-plugin-typescript": "^3.11.0",
