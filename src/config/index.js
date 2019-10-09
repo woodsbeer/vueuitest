@@ -3,24 +3,24 @@
  */
 import env from './env';
 
-const baseURL = env !== 'production' ? 'http://api.test.e-baotong.cn' : 'https://api.e-bao.cn';
-const apiURL = env !== 'production' ? 'http://testapi.insiap.com' : 'http://api.insiap.com';
-const webURL = env !== 'production' ? 'http://insiap.test.e-baotong.cn' : 'http://b.insiap.com';
+const baseURL = env !== 'production' ? 'http://api.test.baidu.cn' : 'https://api.baidu.cn';
+const apiURL = env !== 'production' ? 'http://testapi.baidu.com' : 'http://api.baidu.com';
+const webURL = env !== 'production' ? 'http://insiap.test.baidu.cn' : 'http://b.baidu.com';
 
 export default {
-    name: '盈识运营管理台',
-    version: '1.2',
-    icp: '粤ICP备13063195号',
-    copy: '运营管理台 © 2017 深圳市易保网通科技有限公司 ',
-    pageTitle: '-盈识运营管理台',
-    appName: '展业家',
+    name: 'CARC管理台',
+    version: '1.0',
+    icp: '',
+    copy: '',
+    pageTitle: '-CARC管理台',
+    appName: '',
     baseURL,
     webURL,
     apiURL,
     signConfig: {
         deviceId: '123',
         signVersion: 'v1.1',
-        originKey: 'ios-zyj-v1.1'
+        originKey: ''
     },
     paging:{
         pageSize: 10,
